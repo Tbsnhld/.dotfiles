@@ -5,4 +5,6 @@ require("tobi.plugin_config.harpoon")
 require("tobi.plugin_config.telescope")
 require("tobi.plugin_config.undotree")
 require("tobi.plugin_config.colorscheme")
+require("tobi.plugin_config.mini")
+
 
