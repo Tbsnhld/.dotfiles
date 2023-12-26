@@ -1,4 +1,3 @@
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then 
        vim.fn.system({
@@ -57,10 +56,28 @@ require("lazy").setup({
     'nvim-lua/plenary.nvim',
     'ThePrimeagen/vim-be-good',
     {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
+    {
+      "christoomey/vim-tmux-navigator",
+      cmd = {
+        "TmuxNavigateLeft",
+        "TmuxNavigateDown",
+        "TmuxNavigateUp",
+        "TmuxNavigateRight",
+        "TmuxNavigatePrevious",
+      },
+      keys = {
+        { "<c-Left>", "<cmd>TmuxNavigateLeft<cr>" },
+        { "<c-Down>", "<cmd>TmuxNavigateDown<cr>" },
+        { "<c-Up>", "<cmd>TmuxNavigateUp<cr>" },
+        { "<c-Right>", "<cmd>TmuxNavigateRight<cr>" },
+        { "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>" },
+      },
+    },
     'theprimeagen/harpoon',
     'mbbill/undotree',
     'nvim-treesitter/nvim-treesitter-context',
     'tpope/vim-fugitive',
+    {'roxma/vim-tmux-clipboard'},
     {
         'VonHeikemen/lsp-zero.nvim',
         dependencies = {
