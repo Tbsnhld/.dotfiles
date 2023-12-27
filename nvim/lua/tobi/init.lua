@@ -35,11 +35,28 @@ require("lazy").setup({
         end
     },
     {
-        'nvim-telescope/telescope.nvim', version = '0.1.2',
+        'nvim-telescope/telescope.nvim', version = '0.1.5',
         -- or                            , branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    { 
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        flavour = "mocha",
+        transparent_background = true,
+        styles = {
+            functions = { "italic" },
+            keywords = { "bold" },
+        },
+        integrations = {
+            mason = true,
+            which_key = true,
+            telescope = { enabled = true },
+            harpoon = true,
+        },
+
+    },
     {
         "folke/which-key.nvim",
         event = "VeryLazy",

@@ -6,7 +6,7 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
   	'tsserver',
-  	'eslint',
+    'lua_ls',
   	'pyright',
     },
     handlers = {
