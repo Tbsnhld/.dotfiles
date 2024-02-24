@@ -16,6 +16,9 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     'wbthomason/packer.nvim',
     'rrethy/vim-illuminate',
+    {   'backdround/global-note.nvim',
+        lazy = false,
+    },
     {
         'nvim-tree/nvim-web-devicons',
     },
@@ -117,6 +120,7 @@ require("lazy").setup({
         'hrsh7th/cmp-nvim-lua',
 
         -- Snippets
+        'L3MON4D3/LuaSnip',
         'rafamadriz/friendly-snippets',
     },
 },

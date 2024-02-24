@@ -6,5 +6,5 @@ require("tobi.plugin_config.telescope")
 require("tobi.plugin_config.undotree")
 require("tobi.plugin_config.colorscheme")
 require("tobi.plugin_config.mini")
-
+require("tobi.plugin_config.global_note")
 
