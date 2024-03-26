@@ -1,4 +1,5 @@
 # If you come from bash you might have to change your $PATH.
+export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin/:$PATH"
 
