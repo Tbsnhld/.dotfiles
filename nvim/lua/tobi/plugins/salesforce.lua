@@ -1,12 +1,12 @@
---[[return {
+return {
     "jonathanmorris180/salesforce.nvim",
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
     },
+    dev = false,
     config = function()
-        local salesforce = require("salesforce")
-        salesforce.setup({
+        require("salesforce").setup({
             debug = {
                 to_file = false,
                 to_command_line = false,
@@ -29,9 +29,12 @@
             sf_executable = "sf",
         })
 
-    end
-}]]--
-
-return {
-    {dir = "~/personal/salesforce.nvim/"},
-}
+        vim.keymap.set("n", "<leader>se", "<cmd>SalesforceExecuteFile<cr>")
+        vim.keymap.set("n", "<leader>sc", "<cmd>SalesforceClosePopup<cr>")
+        vim.keymap.set("n", "<leader>sS", "<cmd>SalesforceRefocusPopup<cr>")
+        vim.keymap.set("n", "<leader>stm", "<cmd>SalesforceExecuteCurrentMethod<cr>")
+        vim.keymap.set("n", "<leader>stc", "<cmd>SalesforceExecuteCurrentClass<cr>")
+        vim.keymap.set("n", "<leader>sp", "<cmd>SalesforcePushToOrg<cr>")
+        vim.keymap.set("n", "<leader>sr", "<cmd>SalesforceRetrieveFromOrg<cr>")
+        vim.keymap.set("n", "<leader>sd", "<cmd>SalesforceDiffFile<cr>")
+    end,}
