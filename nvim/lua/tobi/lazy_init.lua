@@ -11,6 +11,18 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.filetype = on
+vim.filetype.add({
+    extension = {
+        apex = 'apex',
+        cls = 'apex',
+        soql = 'soql',
+        sosl = 'sosl',
+        trigger = 'apex',
+
+    },
+})
+
 require("lazy").setup({
     spec = "tobi.plugins",
     change_detection = { notify = false}
