@@ -30,3 +30,15 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
+
+vim.filetype = on
+vim.filetype.add({
+    extension = {
+        apex = 'apex',
+        cls = 'apex',
+        soql = 'soql',
+        sosl = 'sosl',
+        trigger = 'apex',
+
+    },
+})

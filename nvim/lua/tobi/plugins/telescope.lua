@@ -8,6 +8,7 @@ return {
         require('telescope').setup({
             defaults = {
                sorting_strategy = "ascending",
+               file_ignore_patterns = {'node_modules/', 'release-definitions/' }
              },
         })
         local builtin = require('telescope.builtin')

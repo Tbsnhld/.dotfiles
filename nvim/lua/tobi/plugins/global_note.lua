@@ -1,23 +1,20 @@
 return {
     "backdround/global-note.nvim",
-    lazy = false,
-    setup = function()
+    config = function()
 
         local get_project_name = function()
-            local result = vim.system({
-                "git",
-                "rev-parse",
-                "--show-toplevel",
-            }, {
-                text = true,
-            }):wait()
-
-            if result.stderr ~= "" then
-                vim.notify(result.stderr, vim.log.levels.WARN)
+            local result = vim.fn.system({
+                'git',
+                'rev-parse',
+                '--show-toplevel'
+            })
+            
+            if string.find(result, 'fatal') then
+                vim.notify("Not a git repo", vim.log.levels.WARN)
                 return nil
             end
 
-            local project_directory = result.stdout:gsub("\n", "")
+            local project_directory = result
 
             local project_name = vim.fs.basename(project_directory)
             if project_name == nil then
@@ -35,22 +32,34 @@ return {
                     command_name = "ProjectNote",
 
                     filename = function()
-                        return get_project_name()  .. ".md"
+                        project_name = get_project_name()
+                        project_name = string.gsub(project_name,"\n", "")
+                        if project_name == nil then
+                            project_name = "NoPro"
+                        end
+                        return project_name  .. ".md"
                     end,
 
-                    title = get_project_name() .. " Note",
+                    title = function()
+                        project_name = get_project_name()
+                        project_name = string.gsub(project_name,"\n", "")
+                        if project_name == nil then
+                            project_name = "NoPro"
+                        end
+                        return project_name  .. " Note"
+                    end,
                 },
             }
         })
 
-        vim.keymap.set("n", "<leader>n", global_note.toggle_note, {
+        vim.keymap.set("n", "<leader>n", function() global_note.toggle_note() end, {
             desc = "Toggle global note",
         })
         vim.keymap.set("n", "<leader>pn", function()
             global_note.toggle_note("project_local")
         end, {
         desc = "Toggle project note",
-    })
+         })
 
-end
+    end
 }
