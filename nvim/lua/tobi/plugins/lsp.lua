@@ -28,7 +28,13 @@ return {
         local lsp = require("lsp-zero")
 
         lsp.preset("recommended")
-        require('mason').setup({})
+        require('mason').setup({
+            opts = {
+                ensure_installed = {
+                    "codelldb",
+                }
+            }
+        })
         require('mason-lspconfig').setup({
             ensure_installed = {
                 'tsserver',
@@ -37,6 +43,7 @@ return {
                 'pyright',
                 'biome',
                 'apex_ls',
+                'clangd',
             },
             handlers = {
                 lsp.default_setup,
@@ -78,6 +85,13 @@ return {
             apex_enable_completion_statistics = false,
             filetypes = { 'apex', 'apexcode' },
             on_attach = on_attach,
+        }
+        require('lspconfig').clangd.setup {
+            on_attach = function(client, bufnr)
+                client.server_capabilities.signatureHelpProvider = false
+                on_attach(client, bufnr)
+            end,
+            capabilities = capabilities,
         }
 
         local cmp = require('cmp')

@@ -8,19 +8,16 @@ return {
         "TmuxNavigateUp",
     },
     keys = {
-        { "<c-Left>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-        { "<c-Down>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-        { "<c-Up>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-        { "<c-Right>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+        { "<C-Left>",  "<cmd>TmuxNavigateLeft<cr>" },
+        { "<C-Down>",  "<cmd>TmuxNavigateDown<cr>" },
+        { "<C-Up>",    "<cmd>TmuxNavigateUp<cr>" },
+        { "<C-Right>", "<cmd>TmuxNavigateRight<cr>" },
     },
-    config = function()
-        local g = vim.g
-        g.tmux_navigator_no_mappings = 1
-        g.tmux_navigator_disable_when_zoomed = 1
-
-        vim.keymap.set("n", "<c-Left>", vim.cmd.TmuxNavigateLeft)
-        vim.keymap.set("n", "<c-Up>", vim.cmd.TmuxNavigateUp)
-        vim.keymap.set("n", "<c-Down>", vim.cmd.TmuxNavigateDown)
-        vim.keymap.set("n", "<c-Right>", vim.cmd.TmuxNavigateRight)
+    init = function()
+        vim.g.tmux_navigator_no_mappings = 1
+        vim.keymap.set("n", "<C-Left>", vim.cmd.TmuxNavigateLeft)
+        vim.keymap.set("n", "<C-Up>", vim.cmd.TmuxNavigateUp)
+        vim.keymap.set("n", "<C-Down>", vim.cmd.TmuxNavigateDown)
+        vim.keymap.set("n", "<C-Right>", vim.cmd.TmuxNavigateRight)
     end,
 }

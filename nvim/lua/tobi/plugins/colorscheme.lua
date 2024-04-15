@@ -49,7 +49,7 @@ return {
                         blue = "#7daea3",
                         lavender = "#7daea3",
                         text = "#ebdbb2",
-                        subtext1 = "#d5c4a1",
+                        subtext1 = "#acbdcb",
                         subtext0 = "#bdae93",
                         overlay2 = "#a89984",
                         overlay1 = "#928374",
@@ -121,6 +121,7 @@ return {
                         Typedef = { fg = colors.red },
                         Exception = { fg = colors.red },
                         Statement = { fg = colors.red },
+                        Comment = { fg = colors.subtext1 },
 
                         Error = { fg = colors.red },
                         StorageClass = { fg = colors.peach },
