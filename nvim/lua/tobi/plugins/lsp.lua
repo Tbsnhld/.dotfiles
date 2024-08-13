@@ -96,12 +96,14 @@ return {
 
         local cmp = require('cmp')
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
+        require('luasnip.loaders.from_vscode').lazy_load()
         local cmp_mappings = lsp.defaults.cmp_mappings({
             ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
             ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
             ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-            ['<C-f>'] = cmp.mapping.scroll_docs(4),
-            ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+            ['<C-l>'] = cmp.mapping.scroll_docs(-4),
+            ['<C-h>'] = cmp.mapping.scroll_docs(4),
             ['<C-Space>'] = cmp.mapping.complete(),
         })
 
@@ -109,7 +111,16 @@ return {
             sign_icons = {}
         })
         cmp.setup({
-            mapping = cmp_mappings
+            mapping = cmp_mappings,
+            snippet = {
+                expand = function(args)
+                    require("luasnip").lsp_expand(args.body)
+                end,
+            },
+            window = {
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
+            }
         })
 
         lsp.on_attach(function(client, bufnr)
@@ -117,7 +128,7 @@ return {
             local toggleInlay = function()
                 if client.server_capabilities.inlayHintProvider then
                     local current_value = vim.lsp.inlay_hint.get({ bufnr = 0 })[1]
-                    vim.lsp.inlay_hint.enable(bufnr, not current_value)
+                    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.isenabled { bufnr = bufnr }, { bufnr = bufnr })
                 end
             end
 
@@ -135,6 +146,13 @@ return {
                 opts)
             vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, { desc = 'rename' }, opts)
             vim.keymap.set("n", "<leader>tI", toggleInlay, opts)
+            vim.diagnostic.config({
+                virtual_text = true,
+                signs = true,
+                underline = true,
+                update_in_insert = false,
+                severity_sort = false,
+            })
         end)
         lsp.setup()
     end
