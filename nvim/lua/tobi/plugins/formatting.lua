@@ -5,7 +5,7 @@ return {
         local conform = require("conform")
         conform.setup({
             formatters_by_ft = {
-                --apex = { "prettier" },
+                apex = { "prettier" },
                 lua = { "stylua" },
             },
             format_on_save = {
