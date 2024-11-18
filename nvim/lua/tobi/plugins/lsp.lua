@@ -37,12 +37,10 @@ return {
         })
         require('mason-lspconfig').setup({
             ensure_installed = {
-                'tsserver',
                 'rust_analyzer',
                 'lua_ls',
                 'pyright',
                 'biome',
-                'apex_ls',
                 'clangd',
             },
             handlers = {
@@ -60,7 +58,7 @@ return {
             end
 
             vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { desc = "go to Definition" }, opts)
-            vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+            vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, { desc = "Hovering" }, opts)
             vim.keymap.set("n", "gI", function() vim.lsp.buf.implementation() end, { desc = "go to Implementation" },
                 opts)
             vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)

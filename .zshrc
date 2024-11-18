@@ -3,7 +3,8 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin/:$PATH"
 export PATH="$HOME/cli/sf/bin:$PATH"
-export Path="$HOME/miniconda3:$PATH"
+export PATH="$HOME/miniconda3:$PATH"
+export PATH="$HOME/.config/emacs/bin:$PATH"
 
 
 # Path to your oh-my-zsh installation.
