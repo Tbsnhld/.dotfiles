@@ -8,21 +8,20 @@ return {
         -- refer to the configuration section below
         bigfile = { enabled = true },
         dashboard = {
-            {
-                sections = {
-                    { section = "header" },
-                    {
-                        pane = 2,
-                        section = "terminal",
-                        cmd = "colorscript -e square",
-                        height = 5,
-                        padding = 1,
-                    },
-                    { section = "keys", gap = 1, padding = 1 },
-                    { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-                    { section = "startup" },
+            enabled = true,
+            sections = {
+                { section = "header" },
+                { section = "keys", gap = 1, padding = 2 },
+                { pane = 1, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 2 },
+                {
+                    section = "terminal",
+                    cmd = "ascii-image-converter ~/dotfiles/nvim/penguin.png -C -W 60 -m' &@#%8+=;:.'",
+                    random = 10,
+                    pane = 2,
+                    indent = 5,
+                    height = 30,
                 },
-            }
+            },
         },
         notifier = { enabled = true },
         quickfile = { enabled = true },
