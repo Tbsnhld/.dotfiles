@@ -1,3 +1,20 @@
+local Path = require("plenary.path")
+local img_penguin = "img_path"
+local config_dir = vim.fn.stdpath("config")
+local function get_variable_from_json(key)
+    local path = Path:new(config_dir .. "/conf.json")
+    if not path:exists() then
+        return path, "File not found"
+    end
+    local content = path:read()
+    local ok, decoded = pcall(vim.json.decode, content)
+    if not ok then
+        return nil, "Failed to parse JSON"
+    end
+
+    return decoded[key]
+end
+
 return {
     "folke/snacks.nvim",
     priority = 1000,
@@ -15,7 +32,7 @@ return {
                 { pane = 1, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 2 },
                 {
                     section = "terminal",
-                    cmd = "ascii-image-converter ~/dotfiles/nvim/penguin.png -C -W 60 -m' &@#%8+=;:.'",
+                    cmd = "ascii-image-converter " .. get_variable_from_json(img_penguin) .. " -C -W 60 -m' &@#%8+=;:.'",
                     random = 10,
                     pane = 2,
                     indent = 5,
