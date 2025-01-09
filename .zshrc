@@ -1,6 +1,10 @@
 # If you come from bash you might have to change your $PATH.
+export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin/:$PATH"
+export PATH="$HOME/cli/sf/bin:$PATH"
+export PATH="$HOME/miniconda3:$PATH"
+export PATH="$HOME/.config/emacs/bin:$PATH"
 
 
 # Path to your oh-my-zsh installation.
@@ -109,3 +113,4 @@ source $ZSH/oh-my-zsh.sh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
