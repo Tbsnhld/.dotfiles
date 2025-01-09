@@ -42,7 +42,21 @@ require("lazy").setup({
         -- or                            , branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
-    { 
+    {
+        "christoomey/vim-tmux-navigator",
+        lazy = false,
+        config = function()
+            local g = vim.g
+            g.tmux_navigator_no_mappings = 1
+            g.tmux_navigator_disable_when_zoomed = 1
+
+            vim.keymap.set("n", "<C-Left>", vim.cmd.TmuxNavigateLeft)
+            vim.keymap.set("n", "<C-Up>", vim.cmd.TmuxNavigateUp)
+            vim.keymap.set("n", "<C-Down>", vim.cmd.TmuxNavigateDown)
+            vim.keymap.set("n", "<C-Right>", vim.cmd.TmuxNavigateRight)
+        end,
+    },
+    {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,
@@ -76,23 +90,6 @@ require("lazy").setup({
     'nvim-lua/plenary.nvim',
     'ThePrimeagen/vim-be-good',
     {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
-    {
-      "christoomey/vim-tmux-navigator",
-      cmd = {
-        "TmuxNavigateLeft",
-        "TmuxNavigateDown",
-        "TmuxNavigateUp",
-        "TmuxNavigateRight",
-        "TmuxNavigatePrevious",
-      },
-      keys = {
-        { "<c-Left>", "<cmd>TmuxNavigateLeft<cr>" },
-        { "<c-Down>", "<cmd>TmuxNavigateDown<cr>" },
-        { "<c-Up>", "<cmd>TmuxNavigateUp<cr>" },
-        { "<c-Right>", "<cmd>TmuxNavigateRight<cr>" },
-        { "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>" },
-      },
-    },
     'theprimeagen/harpoon',
     'mbbill/undotree',
     'nvim-treesitter/nvim-treesitter-context',
