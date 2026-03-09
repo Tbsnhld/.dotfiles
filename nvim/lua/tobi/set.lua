@@ -3,9 +3,9 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
@@ -33,13 +33,3 @@ vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
 
 vim.filetype = on
-vim.filetype.add({
-    extension = {
-        apex = 'apex',
-        cls = 'apex',
-        soql = 'soql',
-        sosl = 'sosl',
-        trigger = 'apex',
-
-    },
-})
