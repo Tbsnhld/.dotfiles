@@ -39,11 +39,16 @@ return {
             ensure_installed = {
                 'lua_ls',
                 'pyright',
+                'ts_ls',
                 'biome',
+                'eslint',
                 'clangd',
             },
             handlers = {
                 lsp.default_setup,
+                biome = function()
+                    require('lspconfig').biome.setup {}
+                end
             },
         })
 

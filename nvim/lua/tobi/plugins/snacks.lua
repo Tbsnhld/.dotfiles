@@ -33,7 +33,7 @@ return {
                 { pane = 1, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 2 },
                 {
                     section = "terminal",
-                    cmd = "ascii-image-converter " .. get_variable_from_json(img_penguin) .. " -C -W 60 -m' &@#%8+=;:.'",
+                    cmd = "ascii-image-converter " .. get_variable_from_json(img_penguin) .. " -C -W 50 -m' &@#%8+=;:.'",
                     random = 10,
                     pane = 2,
                     indent = 5,

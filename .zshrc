@@ -6,6 +6,8 @@ export PATH="$HOME/cli/sf/bin:$PATH"
 export PATH="$HOME/miniconda3:$PATH"
 export PATH="$HOME/.config/emacs/bin:$PATH"
 export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
+export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
+
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
