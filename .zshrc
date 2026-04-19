@@ -5,6 +5,7 @@ export PATH="$HOME/.local/share/nvim/mason/bin/:$PATH"
 export PATH="$HOME/cli/sf/bin:$PATH"
 export PATH="$HOME/miniconda3:$PATH"
 export PATH="$HOME/.config/emacs/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/texlive/2025/bin/x86_64-linux:$PATH"
 export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
 
@@ -116,3 +117,4 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+fastfetch
