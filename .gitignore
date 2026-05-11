@@ -1,3 +1,4 @@
 .vim 
 .tmux/plugins
 *.json
+node_modules/

@@ -116,3 +116,16 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+# pnpm
+export PNPM_HOME="/home/tobinhld/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
+export PATH="$HOME/.local/share/pnpm:$PATH"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
