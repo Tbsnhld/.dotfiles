@@ -35,5 +35,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- enable LSP (Neovim 0.10+ style)
 vim.lsp.enable("lua_ls")
 require("tobi_new.plugins.lsp.angularls")
+require("tobi_new.plugins.lsp.copilotls")
 
 -- global keymaps (simplest version)

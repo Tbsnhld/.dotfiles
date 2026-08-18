@@ -70,5 +70,5 @@ require("tobi_new.plugins.treesitter")
 require("tobi_new.plugins.undotree")
 require("tobi_new.plugins.vim-illuminate")
 require("tobi_new.plugins.whichkey")
-
-
+require("tobi_new.plugins.excel")
+require("tobi_new.plugins.sidekick")
